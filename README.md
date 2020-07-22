@@ -1,24 +1,12 @@
 # my-next
 
-## Project setup
+### 创建项目
 ```
-yarn install
+vue create xxx
+vue add vue-next
 ```
 
-### Compiles and hot-reloads for development
+### 启动项目
 ```
 yarn serve
 ```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
