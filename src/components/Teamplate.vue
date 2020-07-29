@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <button @click="add">{{num}}</button>
-    <ion-t>1</ion-t>
+    <!-- <ion-t>1</ion-t> -->
     <div>name{{name}}{{age}}</div>
     <button @click="changeAge">变变变</button>
   </div>
