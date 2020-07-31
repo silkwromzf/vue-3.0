@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import { reactive, toRaw, readonly, markRaw, ref, onMounted } from "vue";
+import { reactive, toRaw, readonly, markRaw, ref, onMounted, watch } from "vue";
 
 export default {
   name: "ReactiveApi",
@@ -47,12 +47,36 @@ export default {
     //markRaw 标记对象 使得其不会被转化未代理 返回对象本身
     const obj = { x: 1 };
     const markRawObj = markRaw(obj);
-    console.log(obj === markRawObj); // true
+    // console.log(obj === markRawObj); // true
     // shallowReactive shallowReadonly 只代理一层 不进行深层遍历
 
     const myDom = ref(null);
+    // Refs 通过object accessor ( get / set ) 进行代理
+    // ref / unref 装箱和拆箱
+    // toRef  / toRefs  单个属性/整个对象 装箱
+    // isRef checks if a value is a ref object
+
+    // customRef 自定义一个对象的  ref的 访问器属性返回 Ref
+
+    // shallowRef 浅层观测    triggerRef 触发shallowRef 嵌套属性的修改
+
+
+    // computed 计算数学
+    // watchEffect 检测响应   回立刻执行并在之后依赖属性变化时响应
+
+    //watch
+    const state = reactive({ count: 0 });
+    watch(
+      () => state,
+      (_state) => {
+        console.log(_state)
+      }
+    )
+    setInterval(() => state.x = 1, 1000)
+
+
     onMounted(function () {
-      console.log(myDom.value);
+      // console.log(myDom.value);
     });
     return {
       userInfo,
